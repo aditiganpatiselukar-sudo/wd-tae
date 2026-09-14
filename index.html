@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital Time Zone Converter - compare selected world city times with your local time.">
+  <title>WorldClock — Digital Time Zone Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">◷</div>
+        <div>
+          <h1>WorldClock</h1>
+          <p>Digital Time Zone Converter</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span id="liveStatus" class="live-badge"><span></span> LIVE</span>
+        <button id="formatBtn" class="icon-btn" type="button" title="Switch time format">24H</button>
+        <button id="themeBtn" class="icon-btn" type="button" title="Toggle theme">☾</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">WORLD TIME • REAL-TIME COMPARISON</p>
+          <h2>Know the time, <span>wherever you are.</span></h2>
+          <p class="hero-text">Compare your local time with cities around the world. Add your own cities and instantly see their current time, date and UTC offset.</p>
+        </div>
+        <div class="local-summary">
+          <div class="summary-label">YOUR LOCAL TIME</div>
+          <div id="localTime" class="summary-time">--:--:--</div>
+          <div id="localDate" class="summary-date">Loading…</div>
+          <div id="localZone" class="summary-zone">Detecting time zone…</div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="control-title">
+          <h3>Add a city</h3>
+          <p>Select a city to compare it with your local time.</p>
+        </div>
+        <div class="add-row">
+          <label class="select-wrap">
+            <span class="sr-only">Choose a city</span>
+            <select id="citySelect">
+              <option value="">Choose a city…</option>
+            </select>
+          </label>
+          <button id="addBtn" class="primary-btn" type="button">＋ Add City</button>
+        </div>
+      </section>
+
+      <section class="clock-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">TIME ZONE DASHBOARD</p>
+            <h3>Selected cities</h3>
+          </div>
+          <button id="clearBtn" class="text-btn" type="button">Clear all</button>
+        </div>
+        <div id="clockGrid" class="clock-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="info-grid">
+        <article class="info-card">
+          <div class="info-icon">🌐</div>
+          <h3>How it works</h3>
+          <p>The browser reads your local time zone and uses the JavaScript <code>Intl.DateTimeFormat</code> API to calculate and display the current time in each selected city.</p>
+        </article>
+        <article class="info-card">
+          <div class="info-icon">⚡</div>
+          <h3>Live updates</h3>
+          <p>Every clock updates once per second. The interface also shows whether a selected city is ahead of or behind your local time.</p>
+        </article>
+        <article class="info-card">
+          <div class="info-icon">📱</div>
+          <h3>Responsive design</h3>
+          <p>The layout adapts to desktop, tablet and mobile screens, with large touch-friendly controls and readable digital clocks.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>WorldClock • Web Fundamentals &amp; Basic Frontend Design</span>
+      <span id="footerYear"></span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
